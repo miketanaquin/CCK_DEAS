@@ -21,8 +21,8 @@ export default function Store() {
         <div>
             <Head title="Dashboard" />
             <Navbar />
-            <section className="bg-white dark:bg-gray-900 mt-5">
-                <div className="py-8 lg:py-8 px-10 mx-auto max-w-screen-xl rounded-lg shadow-xl ">
+            <section className="mt-5 bg-white dark:bg-gray-900">
+                <div className="max-w-screen-xl px-10 py-8 mx-auto rounded-lg shadow-xl lg:py-8 ">
                     <div>
                         <Link href={route('dashboard.index')} className="flex text-sm font-medium text-center text-blue-600 hover:underline dark:hover:underline">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5">
@@ -30,7 +30,7 @@ export default function Store() {
                             </svg>
                             Return to Dashboard
                         </Link>
-                        <h2 className="mb-4 mt-5 text-4xl tracking-tight font-extrabold text-center text-gray-900 dark:text-white">New Announcement</h2>
+                        <h2 className="mt-5 mb-4 text-4xl font-extrabold tracking-tight text-center text-gray-900 dark:text-white">New Announcement</h2>
                     </div>
                     <form onSubmit={submit} className="space-y-8">
                         <div>
@@ -73,7 +73,7 @@ export default function Store() {
                             </div> */}
                         </div>
 
-                        <button disabled={processing} type="submit" className="py-3 px-5 text-sm font-medium text-center text-white rounded-lg bg-blue-700 sm:w-fit hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Add Announcement</button>
+                        <button disabled={processing} type="submit" className="px-5 py-3 text-sm font-medium text-center text-white bg-blue-700 rounded-lg sm:w-fit hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Add Announcement</button>
                     </form>
                 </div>
             </section>
