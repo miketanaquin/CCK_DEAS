@@ -7,7 +7,7 @@ import { useState } from 'react';
 
 
 
-export default function Dashboard({ notifs }) {
+export default function Dashboard({ notifs, date }) {
 
     return (
         <div>
@@ -56,11 +56,11 @@ export default function Dashboard({ notifs }) {
                                                 </button>
                                                 <div id={'btn' + notif.id} className="z-10 hidden bg-white divide-y divide-gray-100 rounded shadow w-44 dark:bg-gray-700 dark:divide-gray-600">
                                                     <div className="py-1 text-sm text-gray-700 hover:bg-gray-100">
-                                                        <Link as='button' href={route('dashboard.edit', { id: notif.id })} method="GET" className="block px-4 py-2 "
+                                                        <Link type='button' as='button' href={route('dashboard.edit', { id: notif.id })} method="GET" className="block px-4 py-2 "
                                                         >Edit</Link>
                                                     </div>
                                                     <div className="py-1 dark:hover:text-white hover:bg-gray-100">
-                                                        <Link href={route('dashboard.destroy', { id: notif.id })} method="DELETE" as='button' className="block px-4 py-2 text-sm text-gray-700 dark:text-gray-200 ">Delete</Link>
+                                                        <Link type='button' href={route('dashboard.destroy', { id: notif.id })} method="DELETE" as='button' className="block px-4 py-2 text-sm text-gray-700 dark:text-gray-200 ">Delete</Link>
                                                     </div>
                                                 </div>
                                             </td>

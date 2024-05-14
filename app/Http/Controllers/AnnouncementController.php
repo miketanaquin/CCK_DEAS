@@ -26,7 +26,7 @@ class AnnouncementController extends Controller
     public function index()
     {
         $notifs = Announcement::whereNotNull('id')->whereDate('expired_at', '>=', Carbon::now())->get();
-        // dd($notifs);
+
         return Inertia::render('Welcome', [
             'notifs' => $notifs,
         ]);
@@ -37,7 +37,7 @@ class AnnouncementController extends Controller
      */
     public function store(StoreAnnouncementRequest $request)
     {
-        //   $request->validated();
+        $request->validated();
         // $arr = [$request->date, $request->time];
         // $date_time = implode(" ", $arr);
 
@@ -68,6 +68,7 @@ class AnnouncementController extends Controller
         // $announcement = Announcement::find($request->id);
         // $arr = [$request->date, $request->time];
         // $date_time = implode(" ", $arr);
+        $request->validated();
 
         Announcement::where('id', $request->id)->update([
             'title' => $request->title,

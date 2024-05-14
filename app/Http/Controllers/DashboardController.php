@@ -18,7 +18,6 @@ class DashboardController extends Controller
 
         return Inertia::render('Dashboard/Index', [
             'notifs' => $notifs,
-
         ]);
     }
 
@@ -38,11 +37,9 @@ class DashboardController extends Controller
         $item = Announcement::findOrFail($id);
         $exp = explode(" ", $item->expired_at);
         $date = $exp[0];
-        $time = $exp[1];
         return Inertia::render('Dashboard/Edit', [
             'item' => $item,
             'date' => $date,
-            'time' => $time,
         ]);
     }
 
