@@ -43,7 +43,7 @@ export default function Dashboard({ notifs, date }) {
                                 <tbody>
                                     {notifs.map((notif) => (
 
-                                        <tr className="border-b dark:border-gray-700" key={notif.id}>
+                                        <tr className="border-b dark:border-gray-700 hover:bg-gray-100 dark:hover:bg-neutral-800" key={notif.id}>
                                             <th scope="row" className="px-4 py-3 font-medium text-gray-900 whitespace-nowrap dark:text-white overflow-clip">{notif.title}</th>
                                             <td className="px-4 py-3 overflow-clip">{notif.context}</td>
                                             {/* <td className="px-4 py-3">{notif.created_at}</td> */}

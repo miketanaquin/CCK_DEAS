@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from '@inertiajs/react';
 import logo from "/resources/images/logo.png";
 
+
 export default function Navbar() {
     return (
         <nav className="bg-blue-600 border-gray-700 dark:bg-gray-900 dark:border-gray-700" >

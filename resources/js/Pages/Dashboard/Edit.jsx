@@ -28,7 +28,7 @@ export default function Edit({ item, date }) {
         if (e) {
             toast.success('Success! Announcement has been updated.');
         } else {
-            toast.error('Error! Announcement failed.');
+            toast.error('Error! Announcement update failed.');
         }
 
     }

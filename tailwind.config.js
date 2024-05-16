@@ -9,7 +9,9 @@ export default {
         "./resources/**/*.vue",
         "./node_modules/flowbite/**/*.js",
         './resources/**/*.{js,jsx,ts,tsx}',
-        './node_modules/flowbite-react/lib/esm/**/*.js'
+        './node_modules/flowbite-react/lib/esm/**/*.js',
+        '/node_modules/preline/dist/*.js'
+
     ],
 
     theme: {
@@ -17,11 +19,15 @@ export default {
             fontFamily: {
                 sans: ['Figtree', ...defaultTheme.fontFamily.sans],
             },
+
         },
     },
 
     plugins: [
         forms,
-        require('flowbite/plugin')
+        require('flowbite/plugin'),
+        require('preline/plugin'),
+
     ],
+
 };
