@@ -56,6 +56,7 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::get('/', [AnnouncementController::class, 'index'])->name('announcement.index');
+Route::get('/clock', [AnnouncementController::class, 'clock'])->name('announcement.clock');
 
 
 require __DIR__ . '/auth.php';

@@ -22,8 +22,9 @@ class StoreAnnouncementRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'title' => 'required|string',
-            'context' => 'required|string',
+            'title' => 'required|string|max:30',
+            'context' => 'required|string|max:500',
+            'expired_at' => 'required'
         ];
     }
 }

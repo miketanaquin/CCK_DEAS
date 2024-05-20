@@ -1,7 +1,9 @@
 import Navbar from '@/Layouts/Navbar';
 import React from "react";
-import { useForm, usePage, Head, Link } from "@inertiajs/react";
+import { useForm, usePage, Head, Link, router } from "@inertiajs/react";
 import toast, { Toaster } from 'react-hot-toast';
+import { initFlowbite } from "flowbite";
+
 
 
 
@@ -20,18 +22,22 @@ export default function Edit({ item, date }) {
     function submit(e) {
         e.preventDefault();
 
-        patch(route('dashboard.update', {
-            id: announcement.item.id
-        }));
-        // toast.success('Success! Announcement has been updated.');
+        patch(route('dashboard.update', { id: announcement.item.id }), {
+            preserveScroll: true,
+            onSuccess: () => {
+                toast.success('Success! Announcement has been updated.'),
+                    setTimeout(() => {
+                        router.visit(route('dashboard.index'));
+                    }, 2000);
+            }
+        });
 
-        if (e) {
-            toast.success('Success! Announcement has been updated.');
-        } else {
-            toast.error('Error! Announcement update failed.');
-        }
 
     }
+    useEffect(() => {
+        initFlowbite();
+    });
+
     return (
         <div>
             <Head title="Dashboard" />
@@ -84,21 +90,6 @@ export default function Edit({ item, date }) {
 
                                 </div>
                             </div>
-                            {/* <div>
-                                <div className='mb-3'>
-                                    <label htmlFor="time" className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Select Time</label>
-                                </div>
-                                <div className="relative max-w-sm">
-                                    <div className="absolute inset-y-0 start-0 flex items-center ps-3.5 pointer-events-none">
-                                        <svg className="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
-                                            <path d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z" />
-                                        </svg>
-                                    </div>
-                                    <input type="time" defaultValue={time} onChange={(e) => setData('time', e.target.value)} className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Select date"></input>
-                                    {errors.time && <div className="text-red-600">{errors.time}</div>}
-
-                                </div>
-                            </div> */}
                         </div>
                         <button disabled={processing} type="submit" className="px-5 py-3 text-sm font-medium text-center text-white bg-blue-700 rounded-lg sm:w-fit hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Save</button>
                     </form>

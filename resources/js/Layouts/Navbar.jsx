@@ -1,14 +1,19 @@
 import React from 'react';
 import { Link } from '@inertiajs/react';
 import logo from "/resources/images/logo.png";
+import { initFlowbite } from "flowbite";
+import { useEffect } from 'react';
+
 
 
 export default function Navbar() {
+    useEffect(() => {
+        initFlowbite();
+    });
     return (
         <nav className="bg-blue-600 border-gray-700 dark:bg-gray-900 dark:border-gray-700" >
             <div className="flex flex-wrap items-center justify-between p-4 mx-auto max-w-screen-2xl">
                 <Link href={route('announcement.index')} as='button' className="flex items-center space-x-3 rtl:space-x-reverse">
-                    {/* <span className="self-center text-2xl font-semibold text-white whitespace-nowrap">DEAS</span> */}
                     <img src={logo} className='w-10 h-8' />
                 </Link>
                 <div className="hidden w-full md:block md:w-auto" id="navbar-dropdown">

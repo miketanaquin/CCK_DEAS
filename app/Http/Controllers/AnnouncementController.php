@@ -62,7 +62,7 @@ class AnnouncementController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request)
+    public function update(UpdateAnnouncementRequest $request)
 
     {
         // $announcement = Announcement::find($request->id);
@@ -75,6 +75,7 @@ class AnnouncementController extends Controller
             'context' => $request->context,
             'expired_at' => $request->date
         ]);
+
         AnnouncementEvent::dispatch('refresh');
     }
 
@@ -90,5 +91,10 @@ class AnnouncementController extends Controller
         AnnouncementEvent::dispatch('refresh');
 
         return to_route('dashboard.index');
+    }
+
+    public function clock()
+    {
+        return Inertia::render('Dashboard/Clock');
     }
 }

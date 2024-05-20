@@ -1,13 +1,16 @@
-import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
-import { Head, useForm, Link } from '@inertiajs/react';
+import { Head, useForm, Link, router } from '@inertiajs/react';
 import Navbar from '@/Layouts/Navbar';
 import { useRef } from 'react';
-import { useState } from 'react';
+import { useEffect, useState } from "react";
+import { initFlowbite } from "flowbite";
 
 
 
 
 export default function Dashboard({ notifs, date }) {
+    useEffect(() => {
+        initFlowbite();
+    });
 
     return (
         <div>
@@ -33,7 +36,6 @@ export default function Dashboard({ notifs, date }) {
                                     <tr>
                                         <th scope="col" className="px-4 py-3">Title</th>
                                         <th scope="col" className="px-4 py-3">Context</th>
-                                        {/* <th scope="col" className="px-4 py-3">Date Created</th> */}
                                         <th scope="col" className="px-4 py-3">Expiration</th>
                                         <th scope="col" className="px-4 py-3">
                                             <span className="sr-only">Actions</span>
@@ -46,7 +48,6 @@ export default function Dashboard({ notifs, date }) {
                                         <tr className="border-b dark:border-gray-700 hover:bg-gray-100 dark:hover:bg-neutral-800" key={notif.id}>
                                             <th scope="row" className="px-4 py-3 font-medium text-gray-900 whitespace-nowrap dark:text-white overflow-clip">{notif.title}</th>
                                             <td className="px-4 py-3 overflow-clip">{notif.context}</td>
-                                            {/* <td className="px-4 py-3">{notif.created_at}</td> */}
                                             <td className="px-4 py-3">{notif.expired_at}</td>
                                             <td className="flex items-center justify-end px-4 py-3">
                                                 <button id={notif.id} data-dropdown-toggle={'btn' + notif.id} className="inline-flex items-center p-0.5 text-sm font-medium text-center text-gray-500 hover:text-gray-800 rounded-lg focus:outline-none dark:text-gray-400 dark:hover:text-gray-100" type="button">
