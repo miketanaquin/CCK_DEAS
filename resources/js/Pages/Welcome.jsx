@@ -3,10 +3,6 @@ import { Head, router } from "@inertiajs/react";
 import { useEffect, useState } from "react";
 import { initFlowbite } from "flowbite";
 
-
-
-
-
 export default function Welcome(notifs) {
 
     // console.log(notifs);

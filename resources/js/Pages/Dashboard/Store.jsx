@@ -1,8 +1,6 @@
 import Navbar from '@/Layouts/Navbar';
 import React from "react";
 import { Link, useForm, Head } from "@inertiajs/react";
-import { initFlowbite } from "flowbite";
-
 
 
 export default function Store() {
@@ -10,17 +8,14 @@ export default function Store() {
         title: '',
         context: '',
         date: '',
+        // time: '',
 
     })
 
     function submit(e) {
         e.preventDefault();
-        post('/dashboard/save');
+        post('/dashboard/save')
     }
-
-    useEffect(() => {
-        initFlowbite();
-    });
 
     return (
         <div>
@@ -45,7 +40,7 @@ export default function Store() {
                         </div>
                         <div className="sm:col-span-2">
                             <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400">Description</label>
-                            <textarea onChange={e => setData('context', e.target.value)} type='text' id="description" rows="6" className="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg shadow-sm border border-gray-300 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Input Description"></textarea>
+                            <textarea onChange={e => setData('context', e.target.value)} type='text' id="context" rows="6" className="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg shadow-sm border border-gray-300 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Input Description"></textarea>
                             {errors.context && <div className="text-red-600">{errors.context}</div>}
                         </div>
 
@@ -60,7 +55,7 @@ export default function Store() {
                                             <path d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z" />
                                         </svg>
                                     </div>
-                                    <input type="date" onChange={e => setData('date', e.target.value)} id='date' className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Select date" required></input>
+                                    <input type="date" onChange={e => setData('date', e.target.value)} id="date" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Select date" required></input>
                                     {errors.date && <div className="text-red-600">{errors.date}</div>}
                                 </div>
                             </div>
