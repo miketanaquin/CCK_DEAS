@@ -4,8 +4,6 @@ import { router } from "@inertiajs/react";
 
 
 export default function Clock() {
-
-
     function displayAnnouncement() {
         setTimeout(() => {
             router.visit(route('announcement.index'));

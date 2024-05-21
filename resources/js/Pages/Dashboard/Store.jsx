@@ -1,6 +1,7 @@
 import Navbar from '@/Layouts/Navbar';
 import React from "react";
 import { Link, useForm, Head } from "@inertiajs/react";
+import tone from "../../../../public/storage/notification.mp3"
 
 
 export default function Store() {
@@ -14,7 +15,7 @@ export default function Store() {
 
     function submit(e) {
         e.preventDefault();
-        post('/dashboard/save')
+        post('/dashboard/save');
     }
 
     return (
